@@ -1,8 +1,10 @@
-package com.yikliu.leetcode.dp;
+package com.yikliu.leetcode.problems;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.yikliu.leetcode.problems.EditDistance;
 
 public class EditDistanceTest {
 

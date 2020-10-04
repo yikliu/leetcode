@@ -26,7 +26,8 @@
  * exention -> exection (replace 'n' with 'c')
  * exection -> execution (insert 'u')
  */
-package com.yikliu.leetcode.dp;
+
+package com.yikliu.leetcode.problems;
 
 public class EditDistance {
 

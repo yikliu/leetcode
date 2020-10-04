@@ -1,4 +1,4 @@
-package com.yikliu.leetcode.tree;
+package com.yikliu.ds.tree;
 
 public class ValidateBinaryTree {
 
