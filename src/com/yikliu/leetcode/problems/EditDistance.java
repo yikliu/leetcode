@@ -1,6 +1,6 @@
 /**
  * https://leetcode.com/problems/edit-distance/
- *Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.
+ * Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.
  *
  * You have the following 3 operations permitted on a word:
  *

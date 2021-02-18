@@ -23,3 +23,12 @@
 hs_err_pid*
 *.iml
 .idea/
+
+.classpath
+.gradle/
+.project
+.settings/
+build.gradle
+build/
+lib/
+out/
