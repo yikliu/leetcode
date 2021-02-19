@@ -17,12 +17,12 @@ public class TwoSumTest {
     public void testTwoSum() {
 
         int[] result = twoSum.twoSum(new int[] { 2, 7, 11, 15 }, 9);
-        Assertions.assertEquals(result, new int[] { 0, 1 });
+        Assertions.assertArrayEquals(result, new int[] { 0, 1 });
 
         result = twoSum.twoSum(new int[]{3, 2, 4}, 6);
-        Assertions.assertEquals(result, new int[] {1, 2});
+        Assertions.assertArrayEquals(result, new int[] {1, 2});
 
         result = twoSum.twoSum(new int[]{3, 3}, 6);
-        Assertions.assertEquals(result, new int[] {0, 1});
+        Assertions.assertArrayEquals(result, new int[] {0, 1});
     }
 }

@@ -9,13 +9,14 @@ public class IntegerToEnglish {
 		String[] w = new String[]{"Thousand", "Million", "Billion"};
 		String res = hundred(num % 1000);
 		int i = 0;
+		String trail = "";
 		while(num / 1000 > 0) {
 			num /= 1000;
-			res = hundred(num % 1000) + " " + w[i] +  " " + res;
+		    trail = res.equals("") ? "" : " ";
+			res = hundred(num % 1000) + " " + w[i] +  trail + res;
 			i++;
 		}
 		return res.isEmpty() ? "Zero" : res;
-
 	}
 
 	private String hundred(int num) {
