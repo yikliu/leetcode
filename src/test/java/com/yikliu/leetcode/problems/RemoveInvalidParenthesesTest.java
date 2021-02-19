@@ -3,14 +3,14 @@ package com.yikliu.leetcode.problems;
 import java.util.Arrays;
 import java.util.List;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class RemoveInvalidParenthesesTest {
     private RemoveInvalidParentheses mRemoveInvalidParentheses;
 
-    @BeforeClass
+    @BeforeEach
     public void setup() {
         mRemoveInvalidParentheses = new RemoveInvalidParentheses();
     }
@@ -20,8 +20,8 @@ public class RemoveInvalidParenthesesTest {
         final List<String> expected = Arrays.asList("(a)()()", "(a())()");
         final String input = "(a)())()";
         final List<String> output = mRemoveInvalidParentheses.solve(input);
-        Assert.assertEquals(expected.size(), output.size());
-        Assert.assertTrue(expected.containsAll(output));
-        Assert.assertTrue(output.containsAll(expected));
+        Assertions.assertEquals(expected.size(), output.size());
+        Assertions.assertTrue(expected.containsAll(output));
+        Assertions.assertTrue(output.containsAll(expected));
     }
 }

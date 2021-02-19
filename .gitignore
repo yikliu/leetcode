@@ -31,4 +31,8 @@ hs_err_pid*
 build.gradle
 build/
 lib/
+.DS_Store
+gradle/
+gradlew
+gradlew.bat
 out/

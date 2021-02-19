@@ -11,10 +11,11 @@ public class IntegerToEnglish {
 		int i = 0;
 		while(num / 1000 > 0) {
 			num /= 1000;
-			res = hundred(num % 1000) + " " + w[i] + res;
+			res = hundred(num % 1000) + " " + w[i] +  " " + res;
 			i++;
 		}
 		return res.isEmpty() ? "Zero" : res;
+
 	}
 
 	private String hundred(int num) {
@@ -23,16 +24,18 @@ public class IntegerToEnglish {
 		String[] tenties = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
 		int h = num / 100;
-		int t = num % 100; 
+		int t = num % 100;
 		int o = num % 10;
 
 		if (h > 0) {
 			res += underTwenty[h] + " Hundred";
 		}
-		if (t > 20) {
-			res += " " + tenties[t / 10] + (o > 0 ? " " + underTwenty[o] : "");
+
+		String header = h == 0 ? "" : " ";
+		if (t >= 20) {
+			res += header + tenties[t / 10] + (o > 0 ? " " + underTwenty[o] : "");
 		} else {
-			res += (t > 0 ? " " + underTwenty[t] : "");
+			res += (t > 0 ? header + underTwenty[t] : "");
 		}
 
 		return res;

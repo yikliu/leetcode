@@ -1,14 +1,14 @@
 package com.yikliu.leetcode.problems;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TwoSumTest {
 
     private TwoSum twoSum;
 
-    @BeforeClass
+    @BeforeEach
     public void setup() {
         twoSum = new TwoSum();
     }
@@ -17,12 +17,12 @@ public class TwoSumTest {
     public void testTwoSum() {
 
         int[] result = twoSum.twoSum(new int[] { 2, 7, 11, 15 }, 9);
-        Assert.assertEquals(result, new int[] { 0, 1 });
+        Assertions.assertEquals(result, new int[] { 0, 1 });
 
         result = twoSum.twoSum(new int[]{3, 2, 4}, 6);
-        Assert.assertEquals(result, new int[] {1, 2});
+        Assertions.assertEquals(result, new int[] {1, 2});
 
         result = twoSum.twoSum(new int[]{3, 3}, 6);
-        Assert.assertEquals(result, new int[] {0, 1});
+        Assertions.assertEquals(result, new int[] {0, 1});
     }
 }
