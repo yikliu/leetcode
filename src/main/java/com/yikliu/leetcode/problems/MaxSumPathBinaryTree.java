@@ -21,6 +21,9 @@ public class MaxSumPathBinaryTree {
 
 }
 
+/**
+ * Because pass by reference.
+ */
 class WrapInt{
     int value;
 }
