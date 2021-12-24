@@ -40,15 +40,15 @@ class MaxSumTwoNonOverlappingSubarrays:
 
         for i in range(L + M):
             if i < L:
-                sumL += A[i]            
+                sumL += A[i]
             else:
                 sumM += A[i]
         maxL = 0
         ans = 0
         for i in range(L + M, len(A)):
             sumL += A[i - M] - A[i - L - M]
+            sumM += A[i] - A[i - M]
             maxL = max(maxL, sumL)
             ans = max(ans, maxL + sumM)
 
         return ans
-            sumM += A[i] - A[i - M]
