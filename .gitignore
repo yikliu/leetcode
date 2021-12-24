@@ -30,7 +30,6 @@ hs_err_pid*
 .settings/
 build.gradle
 build/
-lib/
 .DS_Store
 gradle/
 gradlew
