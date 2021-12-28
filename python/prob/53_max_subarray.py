@@ -15,5 +15,4 @@ class MaxSubArray:
                 mx.append(nums[i])
             if max < mx[i]:
                 max = mx[i]
-
         return max
