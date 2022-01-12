@@ -34,7 +34,7 @@ class MaxSumTwoNonOverlappingSubarrays:
     def maxSumTwoNonOverlappingSubarrays(self, A: List[int], L: int, M: int) -> int:
         return max(maxSum(A, L, M), maxSum(A, M, L))
 
-    def maxSum(self, A: List[int], L: int, M: int) -> int:
+    def maxSum(A: List[int], L: int, M: int) -> int:
         sumL = 0
         sumM = 0
 
