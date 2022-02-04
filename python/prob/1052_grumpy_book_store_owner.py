@@ -21,7 +21,6 @@ Note:
 
 class GrumpyBookStoreOwner:
 
-
     def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
 
         satisfied = 0
