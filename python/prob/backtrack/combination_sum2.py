@@ -28,8 +28,6 @@ Output:
 [5]
 ]
 
- 
-
 Constraints:
 
     1 <= candidates.length <= 100

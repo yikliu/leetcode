@@ -6,7 +6,6 @@ class CampusBike:
     def buildup(self, dist, i, j):
         heapq.heappush(self.combos, (dist, i, j))
 
-
     def assignBikes(self, workers, bikes):
         for i, w in enumerate(workers):
             for j, b in enumerate(bikes):
