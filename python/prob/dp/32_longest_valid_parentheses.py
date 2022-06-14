@@ -51,9 +51,3 @@ class LongestValidParentheses(unittest.TestCase):
                     maxans = max(maxans, i - stack[len(stack) - 1])
         return maxans
 
-
-
-
-
-
-
