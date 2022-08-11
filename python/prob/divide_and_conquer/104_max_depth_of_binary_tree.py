@@ -16,20 +16,19 @@ Given binary tree [3,9,20,null,null,15,7],
 return its depth = 3.
 '''
 
-import TreeNode
+from python.lib import TreeNode
 
 class MaxDepthOfBinaryTree:
 
-    def recursive(node: TreeNode) -> int:
+    def recursive(self, node: TreeNode) -> int:
         if not node:
             return 0
-        left = recursive(node.left)
-        right = recursive(node.right)
+        left = self.recursive(node.left)
+        right = self.recursive(node.right)
         if left >= right:
             return left + 1
-        else:
-            return right + 1
+        return right + 1
 
-    def solution(root: TreeNode):
-        return recursive(root)
+    def solution(self, root: TreeNode):
+        return self.recursive(root)
 

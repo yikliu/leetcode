@@ -28,27 +28,28 @@ L + M <= A.length <= 1000
 0 <= A[i] <= 1000
 """
 
+from typing import List
 
 class MaxSumTwoNonOverlappingSubarrays:
 
     def maxSumTwoNonOverlappingSubarrays(self, A: List[int], L: int, M: int) -> int:
-        return max(maxSum(A, L, M), maxSum(A, M, L))
+        return max(self.maxSum(A, L, M), self.maxSum(A, M, L))
 
-    def maxSum(A: List[int], L: int, M: int) -> int:
-        sumL = 0
-        sumM = 0
+    def maxSum(self, A: List[int], L: int, M: int) -> int:
+        sum_l = 0
+        sum_m = 0
 
         for i in range(L + M):
             if i < L:
-                sumL += A[i]
+                sum_l += A[i]
             else:
-                sumM += A[i]
-        maxL = 0
+                sum_m += A[i]
+        max_l = 0
         ans = 0
         for i in range(L + M, len(A)):
-            sumL += A[i - M] - A[i - L - M]
-            sumM += A[i] - A[i - M]
-            maxL = max(maxL, sumL)
-            ans = max(ans, maxL + sumM)
+            sum_l += A[i - M] - A[i - L - M]
+            sum_m += A[i] - A[i - M]
+            max_l = max(max_l, sum_l)
+            ans = max(ans, max_l + sum_m)
 
         return ans

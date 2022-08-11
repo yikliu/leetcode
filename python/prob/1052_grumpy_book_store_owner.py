@@ -19,12 +19,13 @@ Note:
 0 <= grumpy[i] <= 1
 """
 
+from typing import List
+
 class GrumpyBookStoreOwner:
 
-    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
-
+    def max_satisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
         satisfied = 0
-        for i in range(len(customers)):
+        for i, _ in enumerate(customers):
             if grumpy[i] == 0:
                 satisfied += customers[i]
 
@@ -32,9 +33,9 @@ class GrumpyBookStoreOwner:
         for i in range(minutes):
             if grumpy[i] == 1:
                 gain += customers[i]
-        maxGain = gain
+        max_gain = gain
         for i in range(minutes, len(customers)):
             gain += grumpy[i] * customers[i] - grumpy[i - minutes] * customers[i - minutes]
-            maxGain = max(maxGain, gain)
+            max_gain = max(max_gain, gain)
 
-        return satisfied + maxGain
+        return satisfied + max_gain

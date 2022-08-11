@@ -24,25 +24,28 @@ Note:
 1 <= A[i], B[i] <= 6
 2 <= A.length == B.length <= 20000
 """
+
+from typing import List
+
 class MinimalDominoRotation:
 
-    def minDominoRotations(self, tops: List[int], bottoms: List[int]) -> int:
+    def minilam_dominal_rotation(self, tops: List[int], bottoms: List[int]) -> int:
 
         count = [0 for _ in range(7)]
 
         for i in tops:
             count[i] += 1
-        for j in bottoms:
-            count[j] += 1
+        for i in bottoms:
+            count[i] += 1
 
-        maxFreq = 0
+        max_freq = 0
         target = -1
         for i in range(1, 7):
-            if count[i] > maxFreq:
-                maxFreq = count[i]
+            if count[i] > max_freq:
+                max_freq = count[i]
                 target = i
 
-        if maxFreq < len(tops):
+        if max_freq < len(tops):
             return -1
 
         top_count = [0 for _ in range(7)]
@@ -56,13 +59,13 @@ class MinimalDominoRotation:
 
         answer = 0
         if top_count[target] > bottom_count[target]:
-            for i in range(len(tops)):
+            for i, _ in enumerate(tops):
                 if tops[i] != target:
                     if bottoms[i] != target:
                         return -1
                     answer += 1
         else:
-            for i in range(len(bottoms)):
+            for i, _ in enumerate(bottoms):
                 if bottoms[i] != target:
                     if tops[i] != target:
                         return -1

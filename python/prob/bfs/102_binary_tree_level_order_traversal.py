@@ -17,13 +17,13 @@ return its level order traversal as:
 '''
 
 import unittest
-import TreeNode
+from collections import deque
 
-from  collections imports deque
+from python.lib import TreeNode
 
 class BinaryTreeLevelOrderTraversal(unittest.TestCase):
 
-    def levelOrder(root: TreeNode):
+    def levelOrder(self, root: TreeNode):
         result = []
         if not root:
             return [[]]
@@ -34,9 +34,9 @@ class BinaryTreeLevelOrderTraversal(unittest.TestCase):
 
         while q:
             level = []
-            curSize = len(q)
-            for i in range(curSize):
-                node = q.popLeft()
+            cur_size = len(q)
+            for i in range(cur_size):
+                node = q.popleft()
                 level.append(node.val)
                 if node.left:
                     q.append(node.left)
