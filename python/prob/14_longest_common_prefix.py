@@ -17,6 +17,7 @@ Note:
 All given inputs are in lowercase letters a-z.
 '''
 
+from typing import List
 
 def longestCommonPrefix(strs: List[str]) -> str:
     if len(strs) == 0:

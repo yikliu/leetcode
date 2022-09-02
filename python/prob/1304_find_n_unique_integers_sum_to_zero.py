@@ -18,7 +18,7 @@ Constraints:
 1 <= n <= 1000
 '''
 
-class FindNUniqueIntegersSumToZero:
+from typing import List
 
-    def find(self, n: int) -> List[int]:
-        return [i * 2 - n + 1 for i in range(n)]
+def find(self, n: int) -> List[int]:
+    return [i * 2 - n + 1 for i in range(n)]

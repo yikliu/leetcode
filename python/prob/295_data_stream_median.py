@@ -5,7 +5,6 @@ class MedianFinder:
         self.lo = []
         self.hi = []
 
-
     def addNum(self, num: int) -> None:
         """
         :type num: int
@@ -17,10 +16,7 @@ class MedianFinder:
         if len(self.hi) > len(self.lo):
             heapq.heappush(self.lo, -heapq.heappop(self.hi))
 
-
     def findMedian(self) -> float:
         if len(self.lo) > len(self.hi):
             return -self.lo[0]
-        else:
-            return (-self.lo[0] + self.hi[0]) / 2.0
-
+        return (-self.lo[0] + self.hi[0]) / 2.0

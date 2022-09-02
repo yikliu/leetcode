@@ -36,6 +36,8 @@ Constraints:
 1 <= target <= 10^8
 '''
 
+from typing import List
+
 def minSumOfSubarrays(arr: List[int], target: int) -> int:
     n = len(arr)
 

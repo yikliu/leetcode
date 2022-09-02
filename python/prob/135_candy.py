@@ -18,6 +18,8 @@ Output: 4
 Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively. The third child gets 1 candy because it satisfies the above two conditions.
 '''
 
+from typing import List
+
 def candies(ratings: List[int]) -> int:
     n = len(ratings)
     left = [1 for x in range(n)]

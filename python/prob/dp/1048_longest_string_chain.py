@@ -19,41 +19,40 @@ words[i] only consists of English lowercase letters.
 '''
 
 import unittest
+from typing import List
 
+def longestStrChain(words: List[str]) -> int:
+    dp = {}
+    # sort by length
+    words = sorted(words, key=len)
+    ans = 0
+    for s in words:
+        best = 0
+        for i in range(len(s)):
+            prev = s[:i] + s[i + 1:]
+            if prev in dp:
+                best = max(best, dp[prev] + 1)
+            else:
+                best = max(best, 1)
+        dp[s] = best
+        ans = max(ans, best)
+    return ans
 
 class TestLongestStringChain(unittest.TestCase):
 
-    def longestStrChain(self, words: list[str]) -> int:
-        dp = {}
-        # sort by length
-        words = sorted(words, key=len)
-        ans = 0
-        for str in words:
-            best = 0
-            for i in range(len(str)):
-                prev = str[:i] + str[i + 1:]
-                if prev in dp:
-                    best = max(best, dp[prev] + 1)
-                else:
-                    best = max(best, 1)
-            dp[str] = best
-            ans = max(ans, best)
-        return ans
-
     def testLongestStrChain(self):
         words = ["a", "b", "ba", "bca", "bda", "bdca"]
-        ans = self.longestStrChain(words)
+        ans = longestStrChain(words)
         self.assertEqual(4, ans)
 
     def testLongestStrChain2(self):
         words = ["xbc", "pcxbcf", "xb", "cxbc", "pcxbc"]
-        ans = self.longestStrChain(words)
+        ans = longestStrChain(words)
         self.assertEqual(5, ans)
 
     def test3(self):
         words = ["abcd", "dbqca"]
-        self.assertEqual(1, self.longestStrChain(words))
-
+        self.assertEqual(1, longestStrChain(words))
 
 if __name__ == '__main__':
     unittest.main()

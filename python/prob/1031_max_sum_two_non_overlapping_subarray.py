@@ -30,26 +30,24 @@ L + M <= A.length <= 1000
 
 from typing import List
 
-class MaxSumTwoNonOverlappingSubarrays:
+def maxSumTwoNonOverlappingSubarrays(a: List[int], l: int, m: int) -> int:
+    return max(maxSum(a, l, m), maxSum(a, m, l))
 
-    def maxSumTwoNonOverlappingSubarrays(self, A: List[int], L: int, M: int) -> int:
-        return max(self.maxSum(A, L, M), self.maxSum(A, M, L))
+def maxSum(a: List[int], l: int, m: int) -> int:
+    sum_l = 0
+    sum_m = 0
 
-    def maxSum(self, A: List[int], L: int, M: int) -> int:
-        sum_l = 0
-        sum_m = 0
+    for i in range(l + m):
+        if i < l:
+            sum_l += a[i]
+        else:
+            sum_m += a[i]
+    max_l = 0
+    ans = 0
+    for i in range(l + m, len(a)):
+        sum_l += a[i - m] - a[i - l - m]
+        sum_m += a[i] - a[i - m]
+        max_l = max(max_l, sum_l)
+        ans = max(ans, max_l + sum_m)
 
-        for i in range(L + M):
-            if i < L:
-                sum_l += A[i]
-            else:
-                sum_m += A[i]
-        max_l = 0
-        ans = 0
-        for i in range(L + M, len(A)):
-            sum_l += A[i - M] - A[i - L - M]
-            sum_m += A[i] - A[i - M]
-            max_l = max(max_l, sum_l)
-            ans = max(ans, max_l + sum_m)
-
-        return ans
+    return ans

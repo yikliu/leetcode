@@ -12,6 +12,8 @@ Output: 0
 Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 '''
 
+from typing import List
+
 def maxProduct(nums: List[int])-> int:
     max_i = [nums[0]]
     min_i = [nums[0]]

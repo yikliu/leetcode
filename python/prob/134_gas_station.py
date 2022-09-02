@@ -40,6 +40,8 @@ You cannot travel back to station 2, as it requires 4 unit of gas but you only h
 Therefore, you can't travel around the circuit once no matter where you start.
 '''
 
+from typing import List
+
 def gasStation(gas: List[int], cost: List[int]) -> int:
     total = 0
     cur = 0

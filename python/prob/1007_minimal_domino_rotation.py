@@ -27,48 +27,47 @@ Note:
 
 from typing import List
 
-class MinimalDominoRotation:
+def minilam_dominal_rotation(tops: List[int], bottoms: List[int]) -> int:
 
-    def minilam_dominal_rotation(self, tops: List[int], bottoms: List[int]) -> int:
+    count = [0 for _ in range(7)]
 
-        count = [0 for _ in range(7)]
+    for i in tops:
+        count[i] += 1
+    for i in bottoms:
+        count[i] += 1
 
-        for i in tops:
-            count[i] += 1
-        for i in bottoms:
-            count[i] += 1
+    max_freq = 0
+    target = -1
+    for i in range(1, 7):
+        if count[i] > max_freq:
+            max_freq = count[i]
+            target = i
 
-        max_freq = 0
-        target = -1
-        for i in range(1, 7):
-            if count[i] > max_freq:
-                max_freq = count[i]
-                target = i
+    if max_freq < len(tops):
+        return -1
 
-        if max_freq < len(tops):
-            return -1
+    top_count = [0 for _ in range(7)]
+    bottom_count = [0 for _ in range(7)]
 
-        top_count = [0 for _ in range(7)]
-        bottom_count = [0 for _ in range(7)]
+    for i in tops:
+        top_count[i] += 1
 
-        for i in tops:
-            top_count[i] += 1
+    for i in bottoms:
+        bottom_count[i] += 1
 
-        for i in bottoms:
-            bottom_count[i] += 1
-
-        answer = 0
-        if top_count[target] > bottom_count[target]:
-            for i, _ in enumerate(tops):
-                if tops[i] != target:
-                    if bottoms[i] != target:
-                        return -1
-                    answer += 1
-        else:
-            for i, _ in enumerate(bottoms):
+    answer = 0
+    if top_count[target] > bottom_count[target]:
+        for i, _ in enumerate(tops):
+            if tops[i] != target:
                 if bottoms[i] != target:
-                    if tops[i] != target:
-                        return -1
-                    answer += 1
+                    return -1
+                answer += 1
+    else:
+        for i, _ in enumerate(bottoms):
+            if bottoms[i] != target:
+                if tops[i] != target:
+                    return -1
+                answer += 1
 
-        return answer
+    return answer
+

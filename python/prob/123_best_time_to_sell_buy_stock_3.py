@@ -24,36 +24,36 @@ Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 """
 
-class BestTimeToBuySellStockIII:
+from typing import List
 
-    def maxProfit(self, prices:List[int]) -> int:
+def maxProfit(self, prices:List[int]) -> int:
 
-        if not prices or len(prices) == 0:
-            return 0
+    if not prices or len(prices) == 0:
+        return 0
 
-        n = len(prices)
+    n = len(prices)
 
-        # profit_left[i] means if world ends on day i, what is best profit 
-        # for buy one and sell one'
-        profit_left = [0 for _ in n]
-        profit_left[0] = prices[0]
-        left_min = float('inf')
-        for i in range(1, n):
-            profit_left[i] = max(profit_left[i - 1], prices[i] - left_min)
-            left_min = min(left_min, prices[i])
+    # profit_left[i] means if world ends on day i, what is best profit
+    # for buy one and sell one'
+    profit_left = [0 for _ in n]
+    profit_left[0] = prices[0]
+    left_min = float('inf')
+    for i in range(1, n):
+        profit_left[i] = max(profit_left[i - 1], prices[i] - left_min)
+        left_min = min(left_min, prices[i])
 
-        # profit_right[i] means if the market starts at ith day, what is 
-        # the max profit for buy any day after i and sell later'
-        profit_right = [0 for _ in n]
-        profit_right[n - 1] = prices[n - 1]
-        right_max = float('-inf')
-        for j in range(n-2, 1, -1):
-            profit_right[j] = max(right_max - prices[j + 1],
-                                  profit_right[j + 1])
-            right_max = max(right_max, prices[j + 1])
+    # profit_right[i] means if the market starts at ith day, what is
+    # the max profit for buy any day after i and sell later'
+    profit_right = [0 for _ in n]
+    profit_right[n - 1] = prices[n - 1]
+    right_max = float('-inf')
+    for j in range(n-2, 1, -1):
+        profit_right[j] = max(right_max - prices[j + 1],
+                              profit_right[j + 1])
+        right_max = max(right_max, prices[j + 1])
 
-        max_profit = 0
-        for t in range(n):
-            max_profit = max(max_profit, profit_left[t] + profit_right[t])
+    max_profit = 0
+    for t in range(n):
+        max_profit = max(max_profit, profit_left[t] + profit_right[t])
 
-        return max_profit
+    return max_profit
