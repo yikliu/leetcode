@@ -45,7 +45,6 @@ def race_car(target: int) -> int:
 
         # put options into queue
         # first option is to accelerate
-
         q.append((cp + cs, cs * 2, nm + 1))
 
         # second option is to reverse, depending on neccessity

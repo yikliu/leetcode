@@ -28,5 +28,23 @@ All worker and bike locations are distinct.
 from typing import List
 
 def campus_bike_ii(workers: List, bikes: List) -> int:
-    
+    min_dist = float('inf')
+    visited = [0 for len(bikes)]
+    dfs(visited, workers, bikes, 0, 0) 
+    return min_dist
+
+    def dfs(visited:List, workers: List, bikes: List, i:int, cur_dist: int): 
+        if i > len(workers):
+            min_dist = min(min_dist, cur_dist)
+            return
+        if cur_dist > min:
+            return
+
+        for j, b in emunerate(bikes):
+            if visited[j]:
+                continue
+            visited[j] = 1
+            cur_dist += abs(worker[i][0] - bikes[j][0]) + abs(worker[i][1] - bikes[j][1])
+            dfs(visited, workers, bikes, i + 1, cur_dist)
+            visited[j] = 0
 
