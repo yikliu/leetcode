@@ -31,6 +31,8 @@ Return the minimum number of steps to walk from the upper left corner (0, 0) to 
   grid[0][0] == grid[m - 1][n - 1] == 0
 '''
 
+import sys
+from typing import List
 import unittest
 from collections import deque
 
@@ -40,7 +42,7 @@ def shortestPath(grid: List[List[int]], k: int) -> int:
     q = deque()
     maxint = sys.maxint
     visited = [[maxint] * n] * m
-    if gridp[0][0] == 0:
+    if grid[0][0] == 0:
         q.append(0, 0, 0) # [x, y, currently_count_of_eliminated_obs]
         visited[0][0] = 0
     else:
@@ -54,13 +56,13 @@ def shortestPath(grid: List[List[int]], k: int) -> int:
     while q:
         cur_size = len(q)
         while cur_size > 0:
-           cur_set = q.popleft()
+            cur_set = q.popleft()
             if cur_set[0] == m - 1 and cur_set[1] == n - 1:
                 return steps
 
             for di, dj in [[1, 0], [0, 1], [-1, 0], [0, -1]]:
-                cur_i = i + di
-                cur_j = j + dj
+                cur_i = cur[0] + di
+                cur_j = cur[1] + dj
                 if cur_i < 0 or cur_i >= m or cur_j < 0 or cur_j >= n:
                     continue
                 elim_count = grid[cur_i][cur_j] + cur_set[2]

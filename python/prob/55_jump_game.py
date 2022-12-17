@@ -1,3 +1,6 @@
+from typing import List
+
+
 class JumpGame:
 
     def canJump(self, nums: List[int]) -> bool:

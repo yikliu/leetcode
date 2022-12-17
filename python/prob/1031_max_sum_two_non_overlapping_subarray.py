@@ -30,7 +30,7 @@ L + M <= A.length <= 1000
 
 from typing import List
 
-def maxSumTwoNonOverlappingSubarrays(a: List[int], l: int, m: int) -> int:
+def maxSumTwoNonOverlappingSubArrays(a: List[int], l: int, m: int) -> int:
     return max(maxSum(a, l, m), maxSum(a, m, l))
 
 def maxSum(a: List[int], l: int, m: int) -> int:
