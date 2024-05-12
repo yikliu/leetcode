@@ -26,16 +26,19 @@ Note:
 """
 
 from typing import List
+import unittest
 
-def minilam_dominal_rotation(tops: List[int], bottoms: List[int]) -> int:
+def minimal_dominal_rotation(tops: List[int], bottoms: List[int]) -> int:
 
     count = [0 for _ in range(7)]
 
+    # count freq of each number in both top and bottom lists
     for i in tops:
         count[i] += 1
     for i in bottoms:
         count[i] += 1
 
+    # find most freq #, mark the number and its freq
     max_freq = 0
     target = -1
     for i in range(1, 7):
@@ -43,18 +46,22 @@ def minilam_dominal_rotation(tops: List[int], bottoms: List[int]) -> int:
             max_freq = count[i]
             target = i
 
+    # the most_freq value should at least equal to len of either top (or bottom)
     if max_freq < len(tops):
         return -1
 
     top_count = [0 for _ in range(7)]
     bottom_count = [0 for _ in range(7)]
 
+    # count freq of each number in both top and bottom
     for i in tops:
         top_count[i] += 1
 
     for i in bottoms:
         bottom_count[i] += 1
 
+    # if the target number occurs more on top, then flip the dominos whose number does not equal to target and see if flip side is equal to target.
+    # if yes. answer +1. if not, return -1 fast.
     answer = 0
     if top_count[target] > bottom_count[target]:
         for i, _ in enumerate(tops):
@@ -71,3 +78,11 @@ def minilam_dominal_rotation(tops: List[int], bottoms: List[int]) -> int:
 
     return answer
 
+
+class test_minimal_dominal_rotation(unittest.TestCase):
+    def testSuccess(self):
+        self.assertEqual(2, minimal_dominal_rotation([2,1,2,4,2,2], [5,2,6,2,3,2]))
+
+
+if __name__ == '__main__':
+    unittest.main()

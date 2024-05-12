@@ -40,7 +40,8 @@ Note:
 1 <= D <= weights.length <= 50000
 1 <= weights[i] <= 500
 '''
-
+from typing import List
+import unittest
 
 def shipSize(weights: List[int], D: int) -> int:
     left, right = 0, 0
@@ -48,6 +49,7 @@ def shipSize(weights: List[int], D: int) -> int:
         left = max(left, w)
         right += w
 
+    # Binary search for the right size of ship, left is max weight, right is total of all weights. each cut is adding one day.
     while left < right:
         mid = (left + right) // 2
         size = 1
@@ -64,3 +66,13 @@ def shipSize(weights: List[int], D: int) -> int:
         else:
             right = mid
     return left
+
+
+class testShipSize(unittest.TestCase):
+
+    def testSuccess(self):
+        self.assertEqual(6, shipSize([3,2,2,4,1,4], 3))
+        self.assertEqual(3, shipSize([1,2,3,1,1], 4))
+
+if __name__ == '__main__':
+    unittest.main()

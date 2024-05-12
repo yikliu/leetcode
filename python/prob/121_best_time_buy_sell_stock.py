@@ -6,7 +6,6 @@ If you were only permitted to complete at most one transaction (ie, buy one and 
 
 class BestTimeToBuySellStock:
 
-     
     def maxProfit(self, prices: List[int]) -> int:
         if not prices or len(prices) == 0:
             return 0

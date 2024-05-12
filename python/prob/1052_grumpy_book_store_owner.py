@@ -22,13 +22,13 @@ Note:
 from typing import List
 
 class GrumpyBookStoreOwner:
-
+    
     def max_satisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
         satisfied = 0
         for i, _ in enumerate(customers):
             if grumpy[i] == 0:
                 satisfied += customers[i]
-
+        
         gain = 0
         for i in range(minutes):
             if grumpy[i] == 1:

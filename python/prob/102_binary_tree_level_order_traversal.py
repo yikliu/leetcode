@@ -18,7 +18,6 @@ return its level order traversal as:
 
 import unittest
 from collections import deque
-
 from python.lib import TreeNode
 
 class BinaryTreeLevelOrderTraversal(unittest.TestCase):
@@ -40,7 +39,13 @@ class BinaryTreeLevelOrderTraversal(unittest.TestCase):
                 level.append(node.val)
                 if node.left:
                     q.append(node.left)
-                if q[i].right:
+                if node.right:
                     q.append(node.right)
             result.append(level)
         return result
+
+class testBSTLevelOrderTraversal(unittest.TestCase):
+
+    def testSuccess(self):
+
+        self.assertEqual([[3], [9,20], [15,7]], 

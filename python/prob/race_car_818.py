@@ -34,6 +34,7 @@ import unittest
 from collections import deque
 
 def race_car(target: int) -> int:
+    # BFS
     q = deque()
     q.append((0, 1, 0)) # current_pos, current_speed, number of moves
 
@@ -44,7 +45,7 @@ def race_car(target: int) -> int:
             return nm
 
         # put options into queue
-        # first option is to accelerate
+        # GREEDY: first option is to accelerate
         q.append((cp + cs, cs * 2, nm + 1))
 
         # second option is to reverse, depending on neccessity

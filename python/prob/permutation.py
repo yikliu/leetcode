@@ -17,6 +17,5 @@ class TestPermutation(unittest.TestCase):
                 nums[start], nums[i] = nums[i], nums[start]
                 backtrack(start + 1, end)
                 nums[start], nums[i] = nums[i], nums[start]
-        visited
         backtrack(0, len(nums))
-        return ans
+        return

@@ -6,7 +6,7 @@ import TreeNode
 class LevelOrderII:
 
     def solution(root: TreeNode)->List[List[int]]:
-        if not root: 
+        if not root:
             return []
         q = deque()
         s = deque()

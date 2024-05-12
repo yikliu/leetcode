@@ -29,6 +29,7 @@ L + M <= A.length <= 1000
 """
 
 from typing import List
+import unittest
 
 def maxSumTwoNonOverlappingSubArrays(a: List[int], l: int, m: int) -> int:
     return max(maxSum(a, l, m), maxSum(a, m, l))
@@ -44,6 +45,8 @@ def maxSum(a: List[int], l: int, m: int) -> int:
             sum_m += a[i]
     max_l = 0
     ans = 0
+    
+    # shift to find the max
     for i in range(l + m, len(a)):
         sum_l += a[i - m] - a[i - l - m]
         sum_m += a[i] - a[i - m]
@@ -51,3 +54,13 @@ def maxSum(a: List[int], l: int, m: int) -> int:
         ans = max(ans, max_l + sum_m)
 
     return ans
+
+
+class testMaxSumTwononOverlappingSubArrays(unittest.TestCase):
+    
+    def testSuccess(self):
+        self.assertEqual(29, maxSumTwoNonOverlappingSubArrays([3,8,1,3,2,1,8,9,0], 3, 2))
+    
+
+if __name__ == '__main__':
+    unittest.main()
