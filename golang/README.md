@@ -1,2 +1,2 @@
 # golib
-my golang playground 
+my golang playground

@@ -18,7 +18,7 @@ namespace yikliu{
         public:
             Palindrome(void){};
             virtual ~Palindrome(void){};
-            
+
             // Find the longest palindrome string (LPS)
             // table M[i,j] indicate the LPS from index i to index j
             // then M[i,j] = :
@@ -34,11 +34,11 @@ namespace yikliu{
             {
                 size_t length = strlen(str);
                 int M[length][length];
-                
+
                 for (int i = 0; i < length; i++) {
                     M[i][i] = 1;
                 }
-                
+
                 int j = 0;
                 for (int cl = 2; cl <= length; cl++)//cl is the distance between i and j
                 {
@@ -47,7 +47,7 @@ namespace yikliu{
                         j = i + cl - 1;
                         if(str[i] == str[j])
                         {
-                            if(	cl == 2)
+                            if(cl == 2)
                             {
                                 M[i][j] = 2;
                             }
@@ -62,9 +62,7 @@ namespace yikliu{
                         }
                     }
                 }
-                
                 return M[0][length-1];
-                
             }
         };
     }

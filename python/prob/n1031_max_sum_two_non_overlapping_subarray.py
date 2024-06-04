@@ -1,5 +1,6 @@
 """
-Given an array A of non-negative integers, return the maximum sum of elements in two non-overlapping (contiguous) subarrays, which have lengths L and M.  (For clarification, the L-length subarray could occur before or after the M-length subarray.)
+Given an array A of non-negative integers, return the maximum sum of elements in two non-overlapping (contiguous) subarrays,
+which have lengths L and M.  (For clarification, the L-length subarray could occur before or after the M-length subarray.)
 
 Formally, return the largest V for which V = (A[i] + A[i+1] + ... + A[i+L-1]) + (A[j] + A[j+1] + ... + A[j+M-1]) and either:
 
@@ -45,7 +46,7 @@ def maxSum(a: List[int], l: int, m: int) -> int:
             sum_m += a[i]
     max_l = 0
     ans = 0
-    
+
     # shift to find the max
     for i in range(l + m, len(a)):
         sum_l += a[i - m] - a[i - l - m]
@@ -57,10 +58,10 @@ def maxSum(a: List[int], l: int, m: int) -> int:
 
 
 class testMaxSumTwononOverlappingSubArrays(unittest.TestCase):
-    
+
     def testSuccess(self):
         self.assertEqual(29, maxSumTwoNonOverlappingSubArrays([3,8,1,3,2,1,8,9,0], 3, 2))
-    
+
 
 if __name__ == '__main__':
     unittest.main()

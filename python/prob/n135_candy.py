@@ -26,11 +26,11 @@ def candies(ratings: List[int]) -> int:
     right = [1 for x in range(n)]
     for i in range(1, n):
         if ratings[i] > ratings[i - 1]:
-           left[i] = left[i - 1] + 1
+            left[i] = left[i - 1] + 1
     for i in reversed(range(0, n - 1)):
         if ratings[i] > ratings[i + 1]:
             right[i] = right[i+1] + 1
-    sum = 0
+    s = 0
     for i in range(n):
-        sum += max(left[i], right[i])
-    return sum
+        s += max(left[i], right[i])
+    return s

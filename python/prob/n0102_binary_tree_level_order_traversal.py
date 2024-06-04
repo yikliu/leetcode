@@ -44,8 +44,3 @@ class BinaryTreeLevelOrderTraversal(unittest.TestCase):
             result.append(level)
         return result
 
-class testBSTLevelOrderTraversal(unittest.TestCase):
-
-    def testSuccess(self):
-
-        self.assertEqual([[3], [9,20], [15,7]], 

@@ -37,7 +37,7 @@ def robot_bounded_in_circle(instructions : str) -> bool:
     x, y, idx = 0, 0, 0
     for c in instructions:
         if c == 'L':
-            idx = (idx + 3) % 4 # turn to left, dir turn from right 3 times. 
+            idx = (idx + 3) % 4 # turn to left, dir turn from right 3 times.
         elif c == 'R':
             idx = (idx + 1) % 4
         else:
